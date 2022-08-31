@@ -10,7 +10,7 @@ Zusätzlich wurden Änderung aus der [Lohnsteuer2022.xml](/documentation/Lohnste
 ## Haftungsausschluss
 Das Package wird unter der MIT Lizenz bereitgestellt. Der Entwickler übernimmt Dritten gegenüber keine Gewähr für Richtigkeit, Aktualität, Vollständigkeit und Verfügbarkeit der ausgeführten Programme.
 
-**Achtung**
+**Achtung Ende**
 
 ## Usage
 
