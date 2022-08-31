@@ -1,0 +1,43 @@
+{
+  "name": "@bmfin/steuerrechner",
+  "version": "0.0.0",
+  "main": "build/cjs/index.js",
+  "description": "",
+  "scripts": {
+    "test": "jest",
+    "test:ci": "jest --verbose",
+    "test:watch": "jest --watch",
+    "lint": "eslint ./src/**/*.{js,ts} --fix",
+    "start": "tsc --watch",
+    "build": "tsc --build --force tsconfig.cjs.json ./tsconfig.amd.json"
+  },
+  "files": [
+    "./src/**/*.ts",
+    "./build"
+  ],
+  "repository": {
+    "type": "git"
+  },
+  "author": "André aka Schnubb <schnubb@gmail.com>",
+  "license": "MIT",
+  "types": "build/types/index.d.ts",
+  "devDependencies": {
+    "@types/big.js": "^6.1.3",
+    "@types/jest": "^28.1.3",
+    "@types/luxon": "^2.3.2",
+    "@types/xml2js": "^0.4.11",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "isomorphic-fetch": "^3.0.0",
+    "jest": "^28.1.1",
+    "prettier": "^2.6.2",
+    "ts-jest": "^28.0.4",
+    "typescript": "^4.7.3",
+    "xml2js": "^0.4.23"
+  },
+  "dependencies": {
+    "big.js": "^6.1.1",
+    "luxon": "^2.4.0"
+  }
+}
