@@ -1,6 +1,6 @@
 {
   "name": "@bmfin/steuerrechner",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "build/cjs/index.js",
   "description": "",
   "keywords": [
