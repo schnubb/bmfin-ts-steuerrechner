@@ -7,6 +7,9 @@ Dieses Package wurde weder vom BMF entwickelt, noch in Auftrag gegeben.
 Lediglich der [PAP2022](/documentation/2021-11-05-PAP-2022-anlage-1.pdf) wurde als Grundlage für diese Software genutzt.
 Zusätzlich wurden Änderung aus der [Lohnsteuer2022.xml](/documentation/Lohnsteuer2022.xml) ergänzt.
 
+## Haftungsausschluss
+Das Package wird unter der MIT Lizenz bereitgestellt. Der Entwickler übernimmt Dritten gegenüber keine Gewähr für Richtigkeit, Aktualität, Vollständigkeit und Verfügbarkeit der ausgeführten Programme.
+
 **Achtung**
 
 ## Usage
