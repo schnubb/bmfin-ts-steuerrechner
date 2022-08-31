@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "main": "build/cjs/index.js",
   "description": "",
+  "keywords": [
+    "Typescript",
+    "Lohnsteuerrechner",
+    "Steuer"
+  ],
   "scripts": {
     "test": "jest",
     "test:ci": "jest --verbose",
