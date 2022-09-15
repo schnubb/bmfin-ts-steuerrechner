@@ -10,6 +10,7 @@ const code = "2022eP";
 
 describe("Lohnsteuerrechner", () => {
   describe.each([
+    [{ LZZ: 2, RE4: 65450, STKL: 5, KVZ: 0.9, F: 1.0, ZKF: 3 }],
     [{ LZZ: 2, RE4: 533333, STKL: 4, KVZ: 0.9, F: 1.0, ZKF: 1 }],
     [{ LZZ: 2, RE4: 8333, STKL: 4, KVZ: 0.9, F: 1.0, ZKF: 1 }],
     [{ LZZ: 1, RE4: 208333, STKL: 4, KVZ: 0.9, F: 1.0, ZKF: 1 }],

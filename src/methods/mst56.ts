@@ -30,10 +30,10 @@ export const MST56 = ({X, ...rest}:MST56_INPUT, CONFIG:ICONFIGURATION) => {
     }
   } else {
     ZX = ZZX;
-    const stt1 = UP56({X, ZX, ...rest}, CONFIG);
+    st = UP56({X, ZX, ...rest}, CONFIG);
 
     if (ZZX.gt(W1STKL5)) {
-      VERGL = stt1;
+      VERGL = st;
       ZX = W1STKL5;
       const stvergl = UP56({X, ZX, ...rest}, CONFIG);
       // HOCH = ST  + ( ZZX - W1STKL5) * 0,42
