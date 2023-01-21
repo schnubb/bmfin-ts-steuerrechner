@@ -6,7 +6,7 @@ import { LST2022 } from "./lst2022";
 const baseURL = "https://www.bmf-steuerrechner.de/";
 const year = "2022";
 const version = "Version1";
-const code = "2022eP";
+const code = "ext2023";
 
 describe("Lohnsteuerrechner", () => {
   describe.each([
