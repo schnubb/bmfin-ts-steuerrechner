@@ -50,10 +50,10 @@ export const MZTABFB = ({ ZRE4, ZVBEZ, FVBZ, FVBZSO, STKL, ZKF }:MZTABFB_INPUT) 
     // | Ja
     // ZRE4 > ZVBEZ
     if (ZRE4.gt(ZVBEZ) ) {
-      if ((ZRE4.minus(ZVBEZ).lt(1200))) { // WTF?! 1000 in der PDF
+      if ((ZRE4.minus(ZVBEZ).lt(1200))) {
         ANP = ANP.add(ZRE4).minus(ZVBEZ).round(0, Big.roundUp);
       } else {
-        ANP = ANP.add(1200); /// WTF ?! 1000 in der PDF
+        ANP = ANP.add(1200);
       }
     }
   }
