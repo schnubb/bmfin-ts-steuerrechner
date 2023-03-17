@@ -4,11 +4,11 @@
 
 Der Scope dieses Packages ist lediglich eine Referenz auf den Ursprung dieser Software.
 Dieses Package wurde weder vom BMF entwickelt, noch in Auftrag gegeben. 
-Lediglich der [PAP2022](/documentation/2021-11-05-PAP-2022-anlage-1.pdf) wurde als Grundlage für diese Software genutzt.
-Zusätzlich wurden Änderung aus der [Lohnsteuer2022.xml](/documentation/Lohnsteuer2022.xml) ergänzt.
+Lediglich der [PAP2023](/documentation/2022-11-18-PAP-2023-anlage-1.pdf) wurde als Grundlage für diese Software genutzt.
+Zusätzlich wurden Änderung aus der [Lohnsteuer2023.xml](/documentation/Lohnsteuer2023.xml) ergänzt.
 
 ## Haftungsausschluss
-Das Package wird unter der MIT Lizenz bereitgestellt. Der Entwickler übernimmt Dritten gegenüber keine Gewähr für Richtigkeit, Aktualität, Vollständigkeit und Verfügbarkeit der ausgeführten Programme.
+Das Package wird unter der MIT-Lizenz bereitgestellt. Der Entwickler übernimmt Dritten gegenüber keine Gewähr für Richtigkeit, Aktualität, Vollständigkeit und Verfügbarkeit der ausgeführten Programme.
 
 **Achtung Ende**
 
@@ -21,6 +21,33 @@ import Big from "big.js";
 const baseFinData = {LZZ: 1, STKL: 1, RE4: new Big(1000000)};
 const { LSTLZZ } = LST2022(baseFinData);
 ```
+
+Für das Jahr 2023 kann die Methode `LST2023` genutzt werden:
+
+```js
+import { LST2023 } from "@bmfin/steuerrechner";
+import Big from "big.js";
+
+const baseFindData = {LZZ: 1, STKL: 1, RE4: new Big(1000000)};
+const { LSTLZZ } = LST2023(baseFindData);
+```
+
+Für eine dynamischere Bestimmung kann die Methode `LST` genutzt werden:
+
+```js
+import { LST } from "@bmfin/steuerrechner";
+import Big from "big.js";
+
+const year1 = 2022;
+const year2 = 2023;
+const baseFindData = {LZZ: 1, STKL: 1, RE4: new Big(1000000)};
+
+const { LSTLZZ:LSTLZZ22 } = LST(year1, baseFindData);
+const { LSTLZZ:LSTLZZ23 } = LST(year2, baseFindData);
+
+```
+
+:warning: Aktuell werden lediglich die Jahre 2022 und 2023 für korrekte Berechnung unterstützt.
 
 ### Eingabe Informationen
 
