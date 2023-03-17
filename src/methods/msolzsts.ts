@@ -1,27 +1,26 @@
 import Big from "big.js";
-import {KZTAB, STKL} from "../constants";
-import {UPTAB22} from "./uptab22";
-import {MST56} from "./mst56";
-import {ICONFIGURATION} from "../config";
+import { KZTAB, STKL } from "../constants";
+import { UPTAB } from "./uptab";
+import { MST56 } from "./mst56";
+import { ICONFIGURATION } from "../config";
 
 export interface MSOLZSTS_INPUT {
-  STS: Big,
-  ZKF: Big,
-  ZVE:Big,
-  KFB: Big,
-  F: Big,
-  KZTAB: KZTAB,
-  STKL:STKL,
+  STS: Big;
+  ZKF: Big;
+  ZVE: Big;
+  KFB: Big;
+  F: Big;
+  KZTAB: KZTAB;
+  STKL: STKL;
 }
 
-export const MSOLZSTS = ({ F, STS, ZKF, STKL, ZVE, KFB, KZTAB, }:MSOLZSTS_INPUT, CONFIG:ICONFIGURATION) => {
+export const MSOLZSTS = ({ F, STS, ZKF, STKL, ZVE, KFB, KZTAB }: MSOLZSTS_INPUT, CONFIG: ICONFIGURATION) => {
   let SOLZS: Big;
-  let SOLZSBMG:Big;     // Bemessungsgrundlage des Solidaritätszuschlags zur Prüfung der Freigrenze beim Solidaritätszuschlag für sonstige Bezüge (ohne Vergütung für mehrjährige Tätigkeit) in Euro
-  let SOLZSZVE: Big;    // Zu versteuerndes Einkommen für die Ermittlung der Bemessungsgrundlage des Solidaritätszuschlags zur Prüfung der Freigrenze beim Solidaritätszuschlag für sonstige Bezüge (ohne Vergütung für mehrjährige Tätigkeit) in Euro, Cent (2 Dezimalstellen)
-  let X:Big;
+  let SOLZSZVE: Big; // Zu versteuerndes Einkommen für die Ermittlung der Bemessungsgrundlage des Solidaritätszuschlags zur Prüfung der Freigrenze beim Solidaritätszuschlag für sonstige Bezüge (ohne Vergütung für mehrjährige Tätigkeit) in Euro, Cent (2 Dezimalstellen)
+  let X: Big;
   let ST: Big;
 
-  const { SOLZFREI }  = CONFIG
+  const { SOLZFREI } = CONFIG;
 
   // ZKF > 0
   if (ZKF.gt(0)) {
@@ -31,7 +30,7 @@ export const MSOLZSTS = ({ F, STS, ZKF, STKL, ZVE, KFB, KZTAB, }:MSOLZSTS_INPUT,
   } else {
     // | Nein
     // | SOLZSZVE = ZVE
-    SOLZSZVE = ZVE
+    SOLZSZVE = ZVE;
   }
 
   // SOLZSZVE < 1
@@ -50,15 +49,16 @@ export const MSOLZSTS = ({ F, STS, ZKF, STKL, ZVE, KFB, KZTAB, }:MSOLZSTS_INPUT,
   // STKL < 5
   if (STKL < 5) {
     // | Ja
-    // | | UPTAB22
-    ST = UPTAB22({X, KZTAB}, CONFIG);
+    // | | UPTAB22/UPTAB23
+    ST = UPTAB({ X, KZTAB }, CONFIG);
   } else {
     // | Nein
     // | | MST5_6
-    ST = MST56({X, KZTAB}, CONFIG)
+    ST = MST56({ X, KZTAB }, CONFIG);
   }
   // SOLZSBMG = ST * F (-1, roundDown)
-  SOLZSBMG = ST.mul(F).round(-1, Big.roundDown);
+  // Bemessungsgrundlage des Solidaritätszuschlags zur Prüfung der Freigrenze beim Solidaritätszuschlag für sonstige Bezüge (ohne Vergütung für mehrjährige Tätigkeit) in Euro
+  const SOLZSBMG = ST.mul(F).round(-1, Big.roundDown);
 
   // SOLZSBMG > SOLZFREI
   if (SOLZSBMG.gt(SOLZFREI)) {
@@ -75,6 +75,5 @@ export const MSOLZSTS = ({ F, STS, ZKF, STKL, ZVE, KFB, KZTAB, }:MSOLZSTS_INPUT,
     SOLZS,
     SOLZSBMG,
     SOLZSZVE,
-  }
-
-}
+  };
+};

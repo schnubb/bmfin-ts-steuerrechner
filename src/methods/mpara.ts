@@ -1,9 +1,8 @@
 import { PARAMS } from "../config";
-import {IINPUT} from "../input";
+import { IINPUT } from "../input";
 
+export const MPARA = (YEAR: number, P: IINPUT) => {
+  const CONFIGURATION = new PARAMS(YEAR, P);
 
-export const MPARA = (P:IINPUT) => {
-  const CONFIGURATION = new PARAMS(P);
-
-  return {...CONFIGURATION};
-}
+  return { ...CONFIGURATION };
+};
