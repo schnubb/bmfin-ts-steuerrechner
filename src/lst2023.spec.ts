@@ -1,14 +1,14 @@
 import "isomorphic-fetch";
 import { parseStringPromise } from "xml2js";
 import Big from "big.js";
-import { LST2022 } from "./lst";
+import { LST2023 } from "./lst";
 
 const baseURL = "https://www.bmf-steuerrechner.de/";
-const year = "2022";
+const year = "2023";
 const version = "Version1";
 const code = "ext2023";
 
-describe("Lohnsteuerrechner 2022", () => {
+describe("Lohnsteuerrechner 2023", () => {
   describe.each([
     [{ LZZ: 2, RE4: 65450, STKL: 5, KVZ: 0.9, F: 1.0, ZKF: 3 }],
     [{ LZZ: 2, RE4: 533333, STKL: 4, KVZ: 0.9, F: 1.0, ZKF: 1 }],
@@ -37,7 +37,7 @@ describe("Lohnsteuerrechner 2022", () => {
         mappedResult[key] = new Big(val);
       });
 
-      const { LSTLZZ: calculatedLSTLZZ } = LST2022({
+      const { LSTLZZ: calculatedLSTLZZ } = LST2023({
         ...params,
         F: new Big(params.F),
         ZKF: new Big(params.ZKF),
