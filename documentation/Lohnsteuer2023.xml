@@ -1,6 +1,6 @@
 ﻿<PAP name="Lohnsteuer2023Big" version="1.0" versionNummer="1.0">   
     <VARIABLES> 
-		<!-- Stand: 2023-11-16 14:40-->
+		<!-- Stand: 2023-01-04 09:40-->
 		<!-- ITZBund Berlin --> 
 
    		 <!--  EINGABEPARAMETER  -->
@@ -943,12 +943,12 @@
       <THEN>
       	<IF expr="ZRE4.compareTo(ZVBEZ) == 1">
         	<THEN>
-	        	<IF expr="ZRE4.subtract(ZVBEZ).compareTo(BigDecimal.valueOf(1200)) == -1">
+	        	<IF expr="ZRE4.subtract(ZVBEZ).compareTo(BigDecimal.valueOf(1230)) == -1"> <!-- Geändert für 2023 -->
 		        	<THEN>
 		        		<EVAL exec="ANP = ANP.add(ZRE4).subtract(ZVBEZ).setScale(0,BigDecimal.ROUND_UP)"/>
 		        	</THEN>
 	        		<ELSE>
-	        			<EVAL exec="ANP = ANP.add(BigDecimal.valueOf(1200))"/>
+	        			<EVAL exec="ANP = ANP.add(BigDecimal.valueOf(1230))"/> <!-- Geändert für 2023 -->
 	        		</ELSE>
 	        	</IF>
         	</THEN>
@@ -964,7 +964,7 @@
 	  <ELSE>
 			<IF expr="STKL == 2">
 			    <THEN>
-			        <EVAL exec="EFA= BigDecimal.valueOf (4008)"/> <!-- Geändert für 2022 -->
+			        <EVAL exec="EFA= BigDecimal.valueOf (4260)"/> <!-- Geändert für 2023 -->
 			        <EVAL exec="SAP= BigDecimal.valueOf (36)"/>
 			        <EVAL exec="KFB= (ZKF.multiply (BigDecimal.valueOf (8952))).setScale (0, BigDecimal.ROUND_DOWN)"/> <!-- Geändert für 2023 -->
 			    </THEN>
