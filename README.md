@@ -1,4 +1,4 @@
-# JS/TS Lohnsteuer Rechner 2022
+# JS/TS Lohnsteuer Rechner
 
 **Achtung**
 
