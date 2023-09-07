@@ -116,6 +116,6 @@ export const LST = (YEAR: number|string, INPUT: LST_INPUT) => {
   };
 };
 
-export const LST2022 = (INPUT: LST_INPUT) => LST("2022.1", INPUT);
+export const LST2022 = (INPUT: LST_INPUT) => LST(2022, INPUT);
 
 export const LST2023 = (INPUT: LST_INPUT) => LST(2023, INPUT);
