@@ -8,7 +8,7 @@ import { MVMT } from "./methods/mvmt";
 import { ICONFIGURATION } from "./config";
 import { IINPUT, INPUTS, LST_INPUT } from "./input";
 
-export const LST = (YEAR: number, INPUT: LST_INPUT) => {
+export const LST = (YEAR: number|string, INPUT: LST_INPUT) => {
   const INPUTDATA: IINPUT = new INPUTS(INPUT);
 
   const CONFIGURATION: ICONFIGURATION = MPARA(YEAR, INPUTDATA);
