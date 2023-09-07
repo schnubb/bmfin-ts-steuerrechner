@@ -12,14 +12,14 @@ export interface MZTABFB_INPUT {
 }
 
 export const MZTABFB = (P: MZTABFB_INPUT, CONFIG: ICONFIGURATION) => {
-  const { BJAHR } = CONFIG;
+  const { BJAHR , PATCH} = CONFIG;
   if (BJAHR === 2023) {
     return MZTABFB23(P);
   }
-  return MZTABFB22(P);
+  return MZTABFB22(P, PATCH);
 };
 
-export const MZTABFB22 = ({ ZRE4, ZVBEZ, FVBZ, FVBZSO, STKL, ZKF }: MZTABFB_INPUT) => {
+export const MZTABFB22 = ({ ZRE4, ZVBEZ, FVBZ, FVBZSO, STKL, ZKF }: MZTABFB_INPUT, patch?: string) => {
   let ANP = new Big(0); // Arbeitnehmer-Pauschbetrag/Werbungskosten-Pauschbetrag in Euro
   let fvbz = FVBZ;
   let fvbzso = FVBZSO;
@@ -59,7 +59,8 @@ export const MZTABFB22 = ({ ZRE4, ZVBEZ, FVBZ, FVBZSO, STKL, ZKF }: MZTABFB_INPU
     // | Ja
     // ZRE4 > ZVBEZ
     if (ZRE4.gt(ZVBEZ)) {
-      if (ZRE4.minus(ZVBEZ).lt(1200)) {
+      //                                        2022 : 2022.2
+      if (ZRE4.minus(ZVBEZ).lt(patch==="1" ? 1000 : 1200)) {
         ANP = ANP.add(ZRE4).minus(ZVBEZ).round(0, Big.roundUp);
       } else {
         ANP = ANP.add(1200);

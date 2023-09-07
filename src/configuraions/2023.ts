@@ -1,9 +1,9 @@
 import {IINPUT} from "../input";
 import Big from "big.js";
-import {IPARAMS} from "../config";
+import {ICONFIGURATION} from "../config";
 
-const initial = ({ KRV, KVZ, PVS, PVZ }: IINPUT, base: IPARAMS):IPARAMS => {
-  let defaults: IPARAMS;
+const initial = ({ KRV, KVZ, PVS, PVZ }: IINPUT, base: ICONFIGURATION):ICONFIGURATION => {
+  let defaults: ICONFIGURATION;
   defaults = {
     ...base,
     GFB: new Big(10908),
@@ -47,8 +47,8 @@ const initial = ({ KRV, KVZ, PVS, PVZ }: IINPUT, base: IPARAMS):IPARAMS => {
 
   return {...defaults};
 }
-const july = ({ KRV, KVZ, PVS, PVZ, LZZ }: IINPUT, base: IPARAMS):IPARAMS => {
-  let defaults: IPARAMS;
+const july = ({ KRV, KVZ, PVS, PVZ, LZZ }: IINPUT, base: ICONFIGURATION):ICONFIGURATION => {
+  let defaults: ICONFIGURATION;
   defaults = {
     ...base,
     GFB: new Big(10908),
@@ -116,9 +116,9 @@ const july = ({ KRV, KVZ, PVS, PVZ, LZZ }: IINPUT, base: IPARAMS):IPARAMS => {
   return {...defaults};
 }
 
-export const config = (CONFIG: IINPUT, base: IPARAMS, patch?: string):IPARAMS => {
-  if (patch && patch === "1") return {...initial(CONFIG, base)};
-  // patch === undefined || patch === "2"
+export const config = (CONFIG: IINPUT, base: ICONFIGURATION):ICONFIGURATION => {
+  const { PATCH } = base;
+  if (PATCH && PATCH === "1") return {...initial(CONFIG, base)};
   return {...july(CONFIG, base)}
 };
 export default config;

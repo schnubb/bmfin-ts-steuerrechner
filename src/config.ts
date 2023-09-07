@@ -6,25 +6,7 @@ import config2023 from "./configuraions/2023";
 
 export interface ICONFIGURATION {
   BJAHR: number;
-  KENNVMT: KENNVMT;
-  GFB: Big;
-  SOLZFREI: Big;
-  TBSVORV: Big;
-  W1STKL5: Big;
-  W2STKL5: Big;
-  W3STKL5: Big;
-  RVSATZAN: Big;
-  PVSATZAG: Big;
-  PVSATZAN: Big;
-  KVSATZAG: Big;
-  KVSATZAN: Big;
-  BBGKVPV: Big;
-  BBGRV: Big;
-  VBEZBSO: Big;
-}
-
-export interface IPARAMS {
-  BJAHR: number;
+  PATCH: string;
   KENNVMT: KENNVMT;
   GFB: Big; // Grundfreibetrag in Euro
   SOLZFREI: Big; // Freigrenze für den Solidaritätszuschlag in Euro
@@ -59,11 +41,12 @@ const parseYEAR = (inputYear: number | string): { BJAHR: number, PATCH: string }
   }
 }
 
-export const PARAMS = (year:number|string, CONFIG:IINPUT):IPARAMS => {
+export const PARAMS = (year:number|string, CONFIG:IINPUT):ICONFIGURATION => {
   const { BJAHR, PATCH } = parseYEAR(year);
 
   const base = {
     BJAHR: BJAHR,
+    PATCH: PATCH,
     KENNVMT: KENNVMT.NORMAL,
     GFB: new Big(0),
     SOLZFREI: new Big(0),
@@ -83,7 +66,7 @@ export const PARAMS = (year:number|string, CONFIG:IINPUT):IPARAMS => {
 
   return {
     ...base,
-    ...(BJAHR === 2022 ? config2022(CONFIG, base, PATCH) : {}),
-    ...(BJAHR === 2023 ? config2023(CONFIG, base, PATCH) : {}),
+    ...(BJAHR === 2022 ? config2022(CONFIG, base) : {}),
+    ...(BJAHR === 2023 ? config2023(CONFIG, base) : {}),
   };
 }
