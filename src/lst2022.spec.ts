@@ -1,4 +1,3 @@
-import "isomorphic-fetch";
 import { parseStringPromise } from "xml2js";
 import Big from "big.js";
 import { LST2022 } from "./lst";

@@ -1,11 +1,10 @@
-import "isomorphic-fetch";
 import { parseStringPromise } from "xml2js";
 import Big from "big.js";
 import { LST2023 } from "./lst";
 
 const baseURL = "https://www.bmf-steuerrechner.de/";
 const year = "2023";
-const version = "Version1";
+const version = "AbJuliVersion1";
 const code = "ext2023";
 
 describe("Lohnsteuerrechner 2023", () => {
