@@ -45,7 +45,7 @@
     "node": "^20"
   },
   "dependencies": {
-    "big.js": "^6.1.1",
+    "big.js": "^7.0.1",
     "luxon": "^3.3.0"
   }
 }
