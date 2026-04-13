@@ -38,7 +38,7 @@
     "jest": "^30.2.0",
     "prettier": "^3.0.0",
     "ts-jest": "^29.1.1",
-    "typescript": "^5.0.4",
+    "typescript": "^6.0.2",
     "xml2js": "^0.6.0"
   },
   "engines": {
